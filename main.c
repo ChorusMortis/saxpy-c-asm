@@ -21,6 +21,8 @@ int compareFloats(float, float, float);
 void compareResults(float*, float*);
 
 int main() {
+	srand(time(NULL));
+
 	float minValue = -100.0;
 	float maxValue = 100.0;
 
