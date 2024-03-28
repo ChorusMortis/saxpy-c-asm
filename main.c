@@ -28,6 +28,17 @@ int main() {
 	float* Y = (float*)malloc(N * sizeof(float));
 	float* Z_C = (float*)malloc(N * sizeof(float));
 	float* Z_Asm = (float*)malloc(N * sizeof(float));
+
+	// abort if not all vectors were properly initialized
+	if (!X || !Y || !Z_C || !Z_Asm) {
+		fprintf(stderr, "Memory allocation for vectors failed. Use a lower value for N or free up memory.\n");
+		free(X);
+		free(Y);
+		free(Z_C);
+		free(Z_Asm);
+		return EXIT_FAILURE;
+	}
+
 	initVector(minValue, maxValue, X);
 	initVector(minValue, maxValue, Y);
 	
