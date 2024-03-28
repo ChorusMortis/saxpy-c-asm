@@ -14,7 +14,7 @@
 extern void saxpyAsm(int, float, float*, float*, float*);
 void saxpyC(int, float, float*, float*, float*);
 int compareFloats(float, float, float);
-void compareResults(int, float*, float*);
+void compareResults(float*, float*);
 void initVector(int, float*, float*);
 
 int main() {
@@ -50,7 +50,7 @@ int main() {
 	printf("Assembly :: Time taken: %d seconds %d milliseconds\n", Asm_msec / 1000, Asm_msec % 1000);
 	printf("C        :: Time taken: %d seconds %d milliseconds\n\n", C_msec / 1000, C_msec % 1000);
 
-	compareResults(10, Z_Asm, Z_C);
+	compareResults(Z_Asm, Z_C);
 
 	free(X);
 	free(Y);
@@ -78,21 +78,24 @@ void saxpyC(int n, float A, float* X, float* Y, float* Z) {
 }
 
 // floats are imprecise, should allow a little bit of inaccuracy/error
-// https://stackoverflow.com/questions/5989191/compare-two-floats
+// https://stackoverflow.com/a/5989243
 int compareFloats(float a, float b, float epsilon) {
 	return fabs(a - b) < epsilon;
 }
 
-void compareResults(int n, float* Z, float* answers) {
+void compareResults(float* Z, float* answers) {
 	float eps = (float)0.1;
+	int allCorrect = 1;
 	printf("Answers comparison (margin of error = %f)\n\n", eps);
-	for (int i = 0; i < n; i++) {
-		printf("Z_C[%d] = %f \t Z_Asm[%d] = %f => ", i, answers[i], i, Z[i]);
-		if (compareFloats(Z[i], answers[i], eps) == 1) {
-			printf("Correct\n");
+	for (int i = 0; i < N && allCorrect == 1; i++) {
+		if (compareFloats(Z[i], answers[i], eps) != 1) {
+			allCorrect = 0;
 		}
-		else {
-			printf("Incorrect\n");
-		}
+	}
+	if (allCorrect == 1) {
+		printf("The x86-64 kernel output is correct.\n");
+	}
+	else {
+		printf("The x86-64 kernel output is incorrect.\n");
 	}
 }
