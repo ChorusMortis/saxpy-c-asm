@@ -13,23 +13,23 @@
 
 extern void saxpyAsm(int, float, float*, float*, float*);
 void saxpyC(int, float, float*, float*, float*);
+float floatRand(float, float);
+void initVector(float, float, float*);
 int compareFloats(float, float, float);
 void compareResults(float*, float*);
-void initVector(int, float*, float*);
 
 int main() {
-	float sampleX[] = { 1.0, 2.0, 3.0, 4.0 };
-	float sampleY[] = { 5.0, 6.0, 7.0, 8.0 };
-	int sampleSize = sizeof(sampleX) / sizeof(sampleX[0]);
+	float minValue = -100.0;
+	float maxValue = 100.0;
 
 	int n = N;
-	float A = 15.0;
+	float A = floatRand(minValue, maxValue);
 	float* X = (float*)malloc(N * sizeof(float));
 	float* Y = (float*)malloc(N * sizeof(float));
 	float* Z_C = (float*)malloc(N * sizeof(float));
 	float* Z_Asm = (float*)malloc(N * sizeof(float));
-	initVector(sampleSize, sampleX, X);
-	initVector(sampleSize, sampleY, Y);
+	initVector(minValue, maxValue, X);
+	initVector(minValue, maxValue, Y);
 	
 	clock_t Asm_start = clock();
 	saxpyAsm(n, A, X, Y, Z_Asm);
@@ -60,12 +60,6 @@ int main() {
 	return 0;
 }
 
-void initVector(int len, float* sampleV, float* V) {
-	for (int i = 0; i < N; i++) {
-		V[i] = sampleV[i % len];
-	}
-}
-
 void saxpyC(int n, float A, float* X, float* Y, float* Z) {
 	for (int i = 0; i < n; i++) {
 		Z[i] = A * X[i] + Y[i];
@@ -74,6 +68,19 @@ void saxpyC(int n, float A, float* X, float* Y, float* Z) {
 	printf("SAXPY results in C (first 10)\n\n");
 	for (int i = 0; i < 10; i++) {
 		printf("Z_C[%d] = %f\n", i, Z[i]);
+	}
+}
+
+// creates random float between two values, both inclusive
+// https://stackoverflow.com/a/44105089
+float floatRand(float min, float max) {
+	float scale = rand() / (float)RAND_MAX;
+	return min + scale * (max - min);
+}
+
+void initVector(float min, float max, float* V) {
+	for (int i = 0; i < N; i++) {
+		V[i] = floatRand(min, max);
 	}
 }
 
