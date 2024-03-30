@@ -26,12 +26,12 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
 
 The following table shows the average execution times in milliseconds/ms (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length `n` values: $2^{20}$, $2^{24}$, and $2^{28}$.
 
-| Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{28}$  |
-| ------------------ | -------- | -------- | --------- |
-| C (Debug)          | 2.96667  | 41.43333 | 675.53333 |
-| C (Release)        | 0.9      | 13.66667 | 212.9     |
-| Assembly (Debug)   | 0.9      | 10.53333 | 176.13333 |
-| Assembly (Release) | 1.1      | 15.3     | 246.73333 |
+| Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{28}$  |  $2^{30}$   |
+| ------------------ | -------- | -------- | --------- | ----------- |
+| C (Debug)          | 2.96667  | 41.43333 | 675.53333 | 60136.4     |
+| C (Release)        | 0.9      | 13.66667 | 212.9     | 53279.73333 |
+| Assembly (Debug)   | 0.9      | 10.53333 | 176.13333 | 5361.36667  |
+| Assembly (Release) | 1.1      | 15.3     | 246.73333 | 3014.53333  |
 
 The table shows the C kernel's execution time in release mode of 0.9 ms is slightly faster than 2.96667 ms in debug mode, with a small difference of 2.06667 ms. between the C kernel's execution time in debug and release mode for $n = 2^{20}$. Having an average time of 13.66667 ms in release mode compared to 41.43333 ms in debug mode for $n = 2^{24}$, the difference grows into a significant 27.76666 ms difference. With a 212.9 ms average time in release mode against the 675.53333 ms time in debug mode for $n = 2^{28}$, there is a massive time difference of 462.63333 ms. This clearly shows that the compiler optimizations used for release mode can significantly improve performance times for C.
 
