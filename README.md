@@ -5,7 +5,7 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
 ## Installation
 
 1. Clone the repository.
-2. Open the project in Visual Studio 2022. Sample solution files (`.sln` and `.vcxproj`) for the settings needed to build the project are provided. Ensure they are placed in the root directory, as Visual Studio 2022 expects the files to be found there.
+2. Open the project in Visual Studio 2022. Sample solution files (`.sln` and `.vcxproj`) for the settings needed to build the project are provided. Ensure they are placed in the root directory, as Visual Studio 2022 expects the files to be found there. If the project directory does not load directly with the correct structure, clicking the `saxpy-c-asm.sln` file would be an additional step to arrange the structure according to source files, resource files, header files, and external dependencies.
 
     The configurations needed to build successfully are as follows. The settings for `saxpy.asm` are for linking it properly with the main C program. The command used for the custom build tool assumes that [NASM](https://nasm.us/) is installed and added to [PATH](https://en.wikipedia.org/wiki/PATH_(variable)), but an absolute file path to the NASM assembler can be used as well. For instance, if your `nasm` file is located inside the nasm folder of your C drive, then your Custom Build Tool Command Line should be set to `c:\nasm\nasm -fwin64 saxpy.asm`. Adding `legacy_stdio_definitions.lib` as an additional dependency for the linker can help avoid linking issues as the Assembly code calls the C function `printf`.
 
