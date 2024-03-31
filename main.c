@@ -4,7 +4,7 @@
 #include <time.h>
 #include <math.h>
 
-// #define N (1073741824) // 2^30
+#define N (1073741824) // 2^30
 // #define N (536870912) // 2^29
 // #define N (268435456) // 2^28
 // #define N (134217728) // 2^27
