@@ -45,7 +45,7 @@ Overall, the higher values of $n$ that involve more operations to be done prove 
 
 ## Screenshots
 
-**Note:** Since the values for the scalar `A` and each element of the vectors `X` and `Y` are completely randomized in the program, then the checking for the correctness of output should be done at the same time for both C and x86-64 by comparing the value of each element in `Z_C` and `Z_Asm`. Furthermore, a margin of error of 0.10000 was put in place because floats are imprecise in the programming languages. If each element in `Z_C` is equal to each element in `Z_Asm`, then both of them produced correct answers in the program.
+**Note:** Since the values for the scalar `A` and each element of the vectors `X` and `Y` are completely randomized in the program, then checking for the correctness of output should be done at the same time for both C and x86-64 by comparing the value of each element in `Z_C` to the value of each element in `Z_Asm`. Furthermore, a margin of error of 0.10000 was put in place because floats are imprecise in the programming languages. If each element in `Z_C` is equal to each element in `Z_Asm`, then both of them produced correct answers in the program.
 
 The screenshots for the program output on both C and x86-64 for each mode are as follows:
 
