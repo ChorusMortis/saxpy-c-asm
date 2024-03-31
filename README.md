@@ -23,7 +23,7 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
 
 ## Performance Analysis
 
-The following table shows the average execution times in milliseconds/ms (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length $n$ values: $2^{20}$, $2^{24}$, and $2^{30}$. The complete list of execution times of all runs per value of $n$ in both debug and release modes can be found in the [execution times sheets](https://github.com/ChorusMortis/saxpy-c-asm) located in the docs folder of this repository.
+The following table shows the average execution times in milliseconds/ms (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length $n$ values: $2^{20}$, $2^{24}$, and $2^{30}$. The complete list of execution times of all runs per value of $n$ in both debug and release modes can be found in the [execution times sheets](https://github.com/ChorusMortis/saxpy-c-asm/blob/main/docs/sheets_execution-times-per-value-of-n.pdf) located in the docs folder of this repository.
 
 | Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{30}$    |
 | ------------------ | -------- | -------- | ----------- |
