@@ -49,10 +49,10 @@ Overall, the higher values of $n$ that involve more operations to be done prove 
 
 The screenshots for the program output on both C and x86-64 for each mode are as follows:
 
-Program output with correctness check for both C and x86-64 (at the same time) in debug mode for $n = 2^{24}$.
+1. **Program output with correctness check for both C and x86-64 (at the same time) in debug mode for $n = 2^{24}$.**
 
 ![Program output with correctness check for both C and x86-64 (at the same time) in debug mode for n = 2^24](./docs/output_c_and_x86-64_debug-mode_2_24.png)
 
-Program output with correctness check for both C and x86-64 (at the same time) in release mode for $n = 2^{24}$.
+2. **Program output with correctness check for both C and x86-64 (at the same time) in release mode for $n = 2^{24}$.**
 
 ![Program output with correctness check for both C and x86-64 (at the same time) in release mode for n = 2^24](./docs/output_c_and_x86-64_release-mode_2_24.png)
