@@ -108,7 +108,7 @@ int compareFloats(float a, float b, float epsilon) {
 void compareResults(float* Z, float* answers) {
 	float eps = (float)0.1;
 	int allCorrect = 1;
-	printf("Answers comparison (margin of error = %f)\n\n", eps);
+	printf("Comparing each element in Z_Asm and Z_C to check the correctness of the output... (margin of error = %f was applied because floats are imprecise)\n\n", eps);
 	for (int i = 0; i < N && allCorrect == 1; i++) {
 		if (compareFloats(Z[i], answers[i], eps) != 1) {
 			allCorrect = 0;
