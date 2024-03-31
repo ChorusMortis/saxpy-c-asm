@@ -6,10 +6,10 @@
 
 // #define N (1073741824) // 2^30
 // #define N (536870912) // 2^29
-#define N (268435456) // 2^28
+// #define N (268435456) // 2^28
 // #define N (134217728) // 2^27
 // #define N (67108864) // 2^26
-// #define N (16777216) // 2^24
+ #define N (16777216) // 2^24
 // #define N (1048576) // 2^20
 // #define N (16)
 
@@ -115,9 +115,9 @@ void compareResults(float* Z, float* answers) {
 		}
 	}
 	if (allCorrect == 1) {
-		printf("The x86-64 kernel output is correct.\n");
+		printf("The x86-64 and C kernel outputs are equal. Hence, they are both correct.\n");
 	}
 	else {
-		printf("The x86-64 kernel output is incorrect.\n");
+		printf("The x86-64 and C kernel outputs are not equal. Hence, one of them is incorrect.\n");
 	}
 }
