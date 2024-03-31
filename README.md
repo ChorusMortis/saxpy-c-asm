@@ -5,10 +5,9 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
 ## Installation
 
 1. Clone the repository.
-2. Open the project in Visual Studio 2022. Sample solution files (`.sln` and `.vcxproj`) for the settings needed to build the project are provided. Ensure they are placed in the root directory, as Visual Studio 2022 expects the files to be found there. If the project directory does not load directly with the correct structure, launching the `saxpy-c-asm.sln` file would be an additional step to arrange the structure according to source files, resource files, header files, and external dependencies.
-3. Set up the necessary configurations to properly build the project. The complete list of these configurations can be found in the table below.
+2. Open the solution file (`.sln`) in Visual Studio 2022. Sample project files (`.vcxproj`) containing the settings needed to build the project are provided. Ensure they are placed in the root directory, as Visual Studio 2022 expects the files to be found there. The complete list of these configurations can be found in the table below.
     - The settings for `saxpy.asm` are for linking it properly with the main C program.
-    - The command used for the custom build tool assumes that [NASM](https://nasm.us/) is installed and added to [PATH](https://en.wikipedia.org/wiki/PATH_(variable)), but an absolute file path to the NASM assembler can be used as well. For instance, if your `nasm` file is located inside the nasm folder of your C drive, then your Custom Build Tool Command Line should be set to `c:\nasm\nasm -fwin64 saxpy.asm`.
+    - The command used for the custom build tool assumes that [NASM](https://nasm.us/) is installed and added to [PATH](https://en.wikipedia.org/wiki/PATH_(variable)), but an absolute file path to the NASM assembler can be used as well (i.e. `path/to/nasm.exe` instead of `nasm`).
     - Adding `legacy_stdio_definitions.lib` as an additional dependency for the linker can help avoid linking issues as the Assembly code calls the C function `printf`.
 
     | File/Project          | Property                    | Field                   | Value                                                    |
@@ -19,14 +18,14 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
     |                       |                             | Outputs                 | `saxpy.obj`                                              |
     | saxpy-c-asm (Project) | Linker > Input              | Additional Dependencies | `legacy_stdio_definitions.lib;%(AdditionalDependencies)` |
 
-3. Set the desired configuration in building the project (i.e., either `Debug` or `Release` mode).
+3. Set the desired configuration in building the project (i.e., either Debug or Release mode).
 4. Build the solution and run it.
 
 ## Performance Analysis
 
 The following table shows the average execution times in milliseconds/ms (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length `n` values: $2^{20}$, $2^{24}$, and $2^{28}$.
 
-| Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{28}$  |  $2^{30}$   |
+| Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{28}$  | $2^{30}$    |
 | ------------------ | -------- | -------- | --------- | ----------- |
 | C (Debug)          | 2.96667  | 41.43333 | 675.53333 | 60136.4     |
 | C (Release)        | 0.9      | 13.66667 | 212.9     | 53279.73333 |
