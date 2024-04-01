@@ -23,7 +23,7 @@ Performance comparison of the SAXPY function in C and Assembly created for LBYAR
 
 ## Performance Analysis
 
-The following table shows the average execution times in milliseconds (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length $n$ values: $2^{20}$, $2^{24}$, and $2^{30}$. The complete list of execution times of all runs per value of $n$ in both debug and release modes can be found in the [execution times sheets](./docs/sheets_execution-times-per-value-of-n.pdf).
+The following table shows the average execution times in milliseconds (rounded up to 5 decimal places) of the C and Assembly kernels over 30 runs each in debug and release mode for the different vector length $n$ values: $2^{20}$, $2^{24}$, and $2^{30}$. The complete list of execution times of all runs per value of $n$ in both debug and release modes can be found in the [execution times sheets](/docs/sheets_execution-times-per-value-of-n.pdf).
 
 | Vector length (n)  | $2^{20}$ | $2^{24}$ | $2^{30}$    |
 | ------------------ | -------- | -------- | ----------- |
@@ -50,8 +50,8 @@ The screenshots for the program output of both C and x86-64 for debug and releas
 
 1. **Program output with correctness check for both C and x86-64 (at the same time) in debug mode for $n = 2^{24}$.**
 
-    ![Program output with correctness check for both C and x86-64 (at the same time) in debug mode for n = 2^24](./docs/output_c_and_x86-64_debug-mode_2_24.png)
+    ![Program output with correctness check for both C and x86-64 (at the same time) in debug mode for n = 2^24](/docs/output_c_and_x86-64_debug-mode_2_24.png)
 
 2. **Program output with correctness check for both C and x86-64 (at the same time) in release mode for $n = 2^{24}$.**
 
-    ![Program output with correctness check for both C and x86-64 (at the same time) in release mode for n = 2^24](./docs/output_c_and_x86-64_release-mode_2_24.png)
+    ![Program output with correctness check for both C and x86-64 (at the same time) in release mode for n = 2^24](/docs/output_c_and_x86-64_release-mode_2_24.png)
